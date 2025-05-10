@@ -1,0 +1,117 @@
+##Sway
+
+
+#Startup
+exec dbus-update-activation-environment WAYLAND_DISPLAY SWAYSOCK
+exec dunst
+exec wl-paste --type text --watch clipman store --max-items=15 --unix 
+exec pulseaudio --daemonize=no --exit-idle-time=-1
+exec syncthing --no-browser
+exec brightnessctl set 13
+exec waybar
+
+#Behaviour
+xwayland disable
+workspace_layout default
+default_orientation vertical
+default_border pixel
+default_floating_border pixel
+focus_follows_mouse no
+floating_modifier none
+seat seat0 hide_cursor when-typing true
+
+#Workspaces
+bindsym Control+7 workspace number 1
+bindsym Control+8 workspace number 2
+bindsym Control+9 workspace number 3
+bindsym Control+0 workspace number 4
+bindsym Control+Shift+7 move workspace number 1
+bindsym Control+Shift+8 move workspace number 2
+bindsym Control+Shift+9 move workspace number 3
+bindsym Control+Shift+0 move workspace number 4
+
+#Window Management
+bindsym Mod1+j focus next
+bindsym Mod1+k focus prev
+bindsym Mod1+u move workspace to output down
+bindsym Mod1+i move workspace to output up
+bindsym Mod1+Shift+j move down
+bindsym Mod1+Shift+k move up
+bindsym Mod1+Shift+h move left
+bindsym Mod1+Shift+l move right
+bindsym Mod1+Shift+m layout splitv
+bindsym Mod1+Shift+n layout splith
+bindsym Mod1+Shift+b focus mode_toggle
+bindsym Mod1+Shift+u resize shrink height 10px
+bindsym Mod1+Shift+i resize grow height 10px
+bindsym Mod1+Shift+y resize shrink width 10px
+bindsym Mod1+Shift+o resize grow width 10px
+bindsym Mod1+Shift+space fullscreen
+bindsym Mod1+Shift+bracketright kill
+
+#Window Placements
+for_window [app_id="scratchpad_*"] move scratchpad, resize set 800 400
+for_window [app_id="script_*"] floating enable, resize set 800 400
+
+#Input Configuration
+input type:keyboard
+{
+  xkb_layout "us"
+  xkb_options caps:escape,altwin:menu_win
+  xkb_numlock enabled
+}
+input type:pointer pointer_accel 1
+input type:touchpad events disabled
+
+#Output Configuration
+#output * background ~/.local/share/wal fill #000000
+output * background #000000 solid_color
+output LVDS-1 pos 0 0
+output VGA-1 pos 0 768
+
+#Programs
+bindsym Mod4+space exec tofi-drun
+bindsym Mod4+h exec foot
+bindsym Mod4+l exec ( pgrep firefox ) || firefox
+
+#Utilities
+bindsym Mod4+Mod1+h exec kpss
+bindsym Mod4+Mod1+j exec kpss user
+bindsym Mod4+Mod1+k exec kpss pass
+bindsym Mod4+Mod1+l exec kpss info
+bindsym Mod4+Mod1+Control+h exec kpss update
+bindsym Mod4+Mod1+Control+j exec kpss update user
+bindsym Mod4+Mod1+Control+k exec kpss update pass
+bindsym Mod4+Mod1+Control+l exec kpss update info
+bindsym Mod4+Mod1+p exec kcnt wifi-connect
+bindsym Mod4+Mod1+o exec kcnt wifi-disconnect
+bindsym Mod4+Mod1+Control+p exec kcnt bluetooth-connect
+bindsym Mod4+Mod1+Control+o exec kcnt bluetooth-disconnect
+bindsym Mod4+Mod1+Control+m exec kmnt mount
+bindsym Mod4+Mod1+Control+n exec kmnt unmount
+bindsym Mod4+Mod1+Control+Shift+m exec kfmt fat
+bindsym Mod4+Mod1+Control+Shift+n exec kfmt ntfs
+bindsym Mod4+Mod1+comma exec kdwn audio
+bindsym Mod4+Mod1+period exec kdwn video
+bindsym Mod4+Mod1+u exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym Mod4+Mod1+i exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym Mod4+Mod1+y exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym Mod4+Mod1+Control+u exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
+bindsym Mod4+Mod1+Control+i exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
+bindsym Mod4+Mod1+Control+y exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym Mod4+Mod1+g exec clipman pick --tool=STDOUT | tofi | wl-copy --trim-newline
+bindsym Mod4+Mod1+b exec swaylock
+bindsym Print exec grim "${HOME}/med/pix/$(date +%Y%m%d.%I%M%S).png"
+bindsym Control+Print exec slurp | grim -g - "${HOME}/med/pix/$(date +%Y%m%d.%I%M%S).png"
+
+#Restarting
+bindsym Mod4+Mod1+Control+bracketleft reload
+bindsym Mod4+Mod1+Control+bracketright exit
+bindsym Mod4+Mod1+Control+Shift+bracketleft exec doas /usr/bin/shutdown -r now
+bindsym Mod4+Mod1+Control+Shift+bracketright exec doas /usr/bin/shutdown -P now
+
+#Scratchpads
+exec foot --app-id "scratchpad_terminal" --title "Scratchpad" --window-size-pixels 795x395
+exec foot --app-id "scratchpad_calculator" --title "Scratchpad" --window-size-pixels 795x395 calc
+bindsym Mod4+y [app_id="scratchpad_terminal"] scratchpad show
+bindsym Mod4+u [app_id="scratchpad_calculator"] scratchpad show

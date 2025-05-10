@@ -1,0 +1,66 @@
+##zathurarc
+
+
+unmap [normal] <C-t>
+unmap [normal] <C-d>
+unmap [normal] <C-u>
+unmap [normal] <C-y>
+unmap [normal] t
+unmap [normal] <C-f>
+unmap [normal] <C-b>
+unmap [normal] <S-Space>
+unmap [normal] y
+unmap [normal] <C-o>
+unmap [normal] <C-i>
+unmap [normal] a
+unmap [normal] s
+unmap [normal] <C-m>
+unmap [normal] <C-n>
+unmap [normal] zI
+unmap [normal] zO
+unmap [normal] z0
+unmap [fullscreen] <C-d>
+unmap [fullscreen] <C-u>
+unmap [fullscreen] <C-f>
+unmap [fullscreen] <C-b>
+unmap [fullscreen] <S-Space>
+unmap [fullscreen] P
+unmap [fullscreen] <C-o>
+unmap [fullscreen] <C-i>
+unmap [fullscreen] a
+unmap [fullscreen] s
+unmap [fullscreen] <C-m>
+unmap [fullscreen] <C-n>
+unmap [fullscreen] zI
+unmap [fullscreen] zO
+unmap [fullscreen] z0
+
+map [normal] F follow
+map [normal] P toggle_presentation
+map [normal] f toggle_fullscreen
+map [normal] <C-s> toggle_statusbar
+map [normal] <C-j> zoom out
+map [normal] <C-k> zoom in
+map [normal] z zoom
+map [normal] <C-t> set recolor-reverse-video
+map [fullscreen] F follow
+map [fullscreen] f toggle_fullscreen
+map [fullscreen] <C-s> toggle_statusbar
+map [fullscreen] <C-j> zoom out
+map [fullscreen] <C-k> zoom in
+map [fullscreen] z zoom
+map [fullscreen] <C-t> set recolor-reverse-video
+map [presentation] P toggle_presentation
+map [presentation] <C-r> recolor
+map [presentation] <C-t> set recolor-reverse-video
+
+set page-padding 10
+set window-title-basename true
+set zoom-center true
+set selection-clipboard clipboard
+set selection-notification false
+
+#set recolor true
+set recolor-keephue true
+
+set database sqlite

@@ -1,0 +1,12 @@
+##newsboat
+
+
+auto-reload yes
+browser kply
+macro p open-in-browser
+
+
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit

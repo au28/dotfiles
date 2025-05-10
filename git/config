@@ -1,0 +1,13 @@
+##git
+
+
+[user]
+  name = Adeodatus
+  email = adtsaug@gmail.com
+  signingKey = 5F48FC0A00DA717169ABF80E29A7C5C548EF4B92
+[init]
+  defaultBranch = master
+[commit]
+  gpgSign = true
+[advice]
+  addIgnoredFile = false
