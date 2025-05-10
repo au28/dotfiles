@@ -25,7 +25,6 @@ export PULSE_COOKIE="${XDG_DATA_HOME}/pulse/cookie"
 #export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
 #Options
-export XCURSOR_THEME="Yaru-sage-dark"
 readonly TMOUT=300
 
 #Source shellrc
