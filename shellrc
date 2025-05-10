@@ -17,4 +17,4 @@ alias ffmpeg='ffmpeg -analyzeduration 6G -probesize 100MiB -hide_banner -logleve
 alias ffprobe='ffprobe -analyzeduration 6G -probesize 100MiB -hide_banner -loglevel warning -print_format ini -show_format -show_streams'
 
 #Prompt
-PS1="\[\e[33m\]\u\[\e[36m\]@\[\e[32m\]\h \[\e[34m\][\w]\n\[\e[1;31m\]\\$\[\e[00m\] "
+PS1="\[\e[33m\]\u\[\e[36m\]@\[\e[32m\]\h\[\e[34m\][\W]\[\e[1;31m\]\\$\[\e[00m\] "
