@@ -60,7 +60,7 @@ input type:keyboard
   xkb_options caps:escape,altwin:menu_win
   xkb_numlock enabled
 }
-input type:pointer pointer_accel 1
+input type:pointer pointer_accel 0.1
 input type:touchpad events disabled
 
 #Output Configuration
