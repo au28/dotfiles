@@ -111,7 +111,7 @@ bindsym Mod4+Mod1+Control+Shift+bracketleft exec doas /usr/bin/shutdown -r now
 bindsym Mod4+Mod1+Control+Shift+bracketright exec doas /usr/bin/shutdown -P now
 
 #Scratchpads
-exec foot --app-id "scratchpad_terminal" --title "Scratchpad" --window-size-pixels 795x395
-exec foot --app-id "scratchpad_calculator" --title "Scratchpad" --window-size-pixels 795x395 calc
+exec scratchpad.shell
+exec scratchpad.calc
 bindsym Mod4+y [app_id="scratchpad_terminal"] scratchpad show
 bindsym Mod4+u [app_id="scratchpad_calculator"] scratchpad show
