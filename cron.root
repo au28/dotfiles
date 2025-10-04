@@ -1,0 +1,6 @@
+%daily,mail(no) * * makewhatis -Tutf8
+%weekly,mail(no) * * xbps-remove --yes --clean-cache --clean-cache
+%weekly,mail(no) * * xbps-remove --yes --remove-orphans
+%weekly,mail(no) * * vkpurge rm all
+%monthly,mail(no) * * * fstrim --fstab
+%daily,mail(no) * * /root/.local/bin/pullconfig

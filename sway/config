@@ -50,8 +50,8 @@ bindsym Mod1+Shift+space fullscreen
 bindsym Mod1+Shift+bracketright kill
 
 #Window Placements
-for_window [app_id="scratchpad_*"] move scratchpad, resize set 800 400
-for_window [app_id="script_*"] floating enable, resize set 800 400
+for_window [app_id="scratchpad.*"] move scratchpad, resize set 800px 500px
+for_window [app_id="script.*"] floating enable, resize set 800px 500px
 
 #Input Configuration
 input type:keyboard
@@ -60,7 +60,7 @@ input type:keyboard
   xkb_options caps:escape,altwin:menu_win
   xkb_numlock enabled
 }
-input type:pointer pointer_accel 0.1
+input type:pointer pointer_accel -0.6
 input type:touchpad events disabled
 
 #Output Configuration
@@ -72,7 +72,7 @@ output VGA-1 pos 0 768
 #Programs
 bindsym Mod4+space exec tofi-drun
 bindsym Mod4+h exec foot
-bindsym Mod4+l exec ( pgrep firefox ) || firefox
+bindsym Mod4+l exec ( pgrep chromium ) || gtk-launch chromium
 
 #Utilities
 bindsym Mod4+Mod1+h exec kpss
@@ -80,10 +80,7 @@ bindsym Mod4+Mod1+j exec kpss user
 bindsym Mod4+Mod1+k exec kpss pass
 bindsym Mod4+Mod1+l exec kpss info
 bindsym Mod4+Mod1+Control+h exec kpss update
-bindsym Mod4+Mod1+Control+j exec kpss update user
-bindsym Mod4+Mod1+Control+k exec kpss update pass
-bindsym Mod4+Mod1+Control+l exec kpss update info
-bindsym Mod4+Mod1+p exec kcnt wifi-connect
+bindsym Mod4+Mod1+p exec kcnt wifi-connect 800x500
 bindsym Mod4+Mod1+o exec kcnt wifi-disconnect
 bindsym Mod4+Mod1+Control+p exec kcnt bluetooth-connect
 bindsym Mod4+Mod1+Control+o exec kcnt bluetooth-disconnect
@@ -111,7 +108,7 @@ bindsym Mod4+Mod1+Control+Shift+bracketleft exec doas /usr/bin/shutdown -r now
 bindsym Mod4+Mod1+Control+Shift+bracketright exec doas /usr/bin/shutdown -P now
 
 #Scratchpads
-exec scratchpad.shell
-exec scratchpad.calc
-bindsym Mod4+y [app_id="scratchpad_terminal"] scratchpad show
-bindsym Mod4+u [app_id="scratchpad_calculator"] scratchpad show
+exec "while true;do foot --app-id "scratchpad.shell" --title "Scratchpad" --window-size-pixels 800x500;done;"
+exec "while true;do foot --app-id "scratchpad.calc" --title "Scratchpad" --window-size-pixels 800x500 calc;done;"
+bindsym Mod4+y [app_id="scratchpad.shell"] scratchpad show
+bindsym Mod4+u [app_id="scratchpad.calc"] scratchpad show
