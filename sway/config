@@ -9,6 +9,7 @@ exec pulseaudio --daemonize=no --exit-idle-time=-1
 exec syncthing --no-browser
 exec brightnessctl set 13
 exec waybar
+exec "while true;do foot --server;done;"
 
 #Behaviour
 xwayland disable
@@ -60,7 +61,7 @@ input type:keyboard
   xkb_options caps:escape,altwin:menu_win
   xkb_numlock enabled
 }
-input type:pointer pointer_accel -0.6
+input type:pointer pointer_accel -0.3
 input type:touchpad events disabled
 
 #Output Configuration
@@ -71,7 +72,7 @@ output VGA-1 pos 0 768
 
 #Programs
 bindsym Mod4+space exec tofi-drun
-bindsym Mod4+h exec foot
+bindsym Mod4+h exec footclient
 bindsym Mod4+l exec ( pgrep chromium ) || gtk-launch chromium
 
 #Utilities
@@ -98,8 +99,8 @@ bindsym Mod4+Mod1+Control+i exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
 bindsym Mod4+Mod1+Control+y exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym Mod4+Mod1+g exec clipman pick --tool=STDOUT | tofi | wl-copy --trim-newline
 bindsym Mod4+Mod1+b exec swaylock
-bindsym Print exec grim "${HOME}/med/pix/$(date +%Y%m%d.%I%M%S).png"
-bindsym Control+Print exec slurp | grim -g - "${HOME}/med/pix/$(date +%Y%m%d.%I%M%S).png"
+bindsym Print exec grim "${HOME}/dl/$(date +%Y%m%d.%I%M%S).png"
+bindsym Control+Print exec slurp | grim -g - "${HOME}/dl/$(date +%Y%m%d.%I%M%S).png"
 
 #Restarting
 bindsym Mod4+Mod1+Control+bracketleft reload
