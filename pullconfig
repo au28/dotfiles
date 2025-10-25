@@ -1,0 +1,16 @@
+#!/bin/sh
+
+
+#Variables
+GIT="/usr/bin/git"
+ROOTCONFIG="/root/.config"
+
+#Exported Variables
+export GNUPGHOME="/root/.local/share/gnupg"
+
+#Main
+cd "${ROOTCONFIG}" || return
+if ("${GIT}" fetch origin +master && "${GIT}" verify-commit origin/master)
+then
+  "${GIT}" pull origin +master
+fi
