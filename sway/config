@@ -5,10 +5,12 @@
 exec dbus-update-activation-environment WAYLAND_DISPLAY SWAYSOCK
 exec dunst
 exec wl-paste --type text --watch clipman store --max-items=15 --unix 
-exec pulseaudio --daemonize=no --exit-idle-time=-1
+exec pipewire
 exec syncthing --no-browser
 exec brightnessctl set 13
 exec waybar
+exec "sleep 5; pactl load-module module-null-sink sink_name=media.sink sink_properties=device.description=media.sink"
+exec "sleep 5; pactl load-module module-remap-source master=media.sink.monitor source_name=media source_properties=\"device.description=media\""
 exec "while true;do foot --server;done;"
 
 #Behaviour
