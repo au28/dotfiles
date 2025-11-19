@@ -34,7 +34,7 @@ then
 fi
 
 #Source shellrc
-if [ -f "${XDG_CONFIG_HOME}/shellrc" ]
+if [ -f "${HOME}/.bashrc" ]
 then
-  . "${XDG_CONFIG_HOME}/shellrc"
+  . "${HOME}/.bashrc"
 fi
