@@ -15,6 +15,7 @@ export HISTFILE="${XDG_CACHE_HOME}/bash_history"
 export LESSHISTFILE="${XDG_CACHE_HOME}/less_history"
 export CALCHISTFILE="${XDG_CACHE_HOME}/calc_history"
 export PULSE_COOKIE="${XDG_DATA_HOME}/pulse/cookie"
+export DOCKER_CONFIG="${XDG_STATE_HOME}/docker"
 
 #Options
 readonly TMOUT=300
