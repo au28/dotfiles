@@ -12,5 +12,5 @@ export GNUPGHOME="/root/.local/share/gnupg"
 cd "${ROOTCONFIG}" || return
 if ("${GIT}" fetch origin +master && "${GIT}" verify-commit origin/master)
 then
-  "${GIT}" pull origin +master
+  "${GIT}" reset --hard origin/master
 fi
