@@ -1,0 +1,6 @@
+##inputrc
+
+
+set input-meta on
+set output-meta on
+set bell-style none

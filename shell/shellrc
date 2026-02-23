@@ -7,13 +7,40 @@ then
   return
 fi
 
-#GnuPG
-export GPG_TTY="$(tty)"
+#Bash Options
+if [ "$(id --user)" = "0" ]
+then
+  readonly TMOUT="300"
+fi
+shopt -s histappend
+shopt -s cmdhist
+INPUTRC="${HOME}/src/dotfiles/shell/inputrc"
+HISTCONTROL="erasedups"
+HISTSIZE="5000"
+HISTFILE="${XDG_CACHE_HOME}/shell.history"
+HISTFILESIZE="20000"
+HISTTIMEFORMAT="%d/%m/%y %I:%M %p "
+
+#Program Options
+export LESSHISTFILE="${XDG_CACHE_HOME}/less.history"
+export LESSHISTSIZE="20000"
+export LESS="--RAW-CONTROL-CHARS"
+export CALCHISTFILE="${XDG_CACHE_HOME}/calc.history"
+export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
+GPG_TTY="$(tty)"
+export GPG_TTY
+eval "$(dircolors --sh)"
 
 #Aliases
-alias ls='ls --color=auto'
-alias ffmpeg='ffmpeg -analyzeduration 6G -probesize 100MiB -hide_banner -loglevel info'
-alias ffprobe='ffprobe -analyzeduration 6G -probesize 100MiB -hide_banner -loglevel warning -print_format ini -show_format -show_streams'
+alias ls="ls --color=auto"
+alias ll="ls --all -l"
+alias la="ls --almost-all"
+alias rm="rm --interactive"
+alias ffmpeg="ffmpeg -analyzeduration 6G -probesize 100MiB -hide_banner -loglevel info"
+alias ffprobe="ffprobe -analyzeduration 6G -probesize 100MiB -hide_banner -loglevel warning -print_format ini -show_format -show_streams"
 
 #Prompt
 PS1="\[\e[33m\]\u\[\e[36m\]@\[\e[32m\]\h\[\e[34m\][\W]\[\e[1;31m\]\\$\[\e[00m\] "
+
+#Turn off suspend
+stty -ixon

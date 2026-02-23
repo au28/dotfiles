@@ -54,7 +54,8 @@ map [presentation] P toggle_presentation
 map [presentation] <C-r> recolor
 map [presentation] <C-t> set recolor-reverse-video
 
-set page-padding 10
+set page-v-padding 10
+set page-h-padding 10
 set window-title-basename true
 set zoom-center true
 set selection-clipboard clipboard
