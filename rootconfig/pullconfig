@@ -2,14 +2,14 @@
 
 
 #Variables
+CONFIG="${HOME}/src/dotfiles"
 GIT="/usr/bin/git"
-ROOTCONFIG="/root/.config"
 
 #Exported Variables
 export GNUPGHOME="/root/.local/share/gnupg"
 
 #Main
-cd "${ROOTCONFIG}" || return
+cd "${CONFIG}" || return
 if ("${GIT}" fetch origin +master && "${GIT}" verify-commit origin/master)
 then
   "${GIT}" reset --hard origin/master
