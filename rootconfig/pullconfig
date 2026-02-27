@@ -6,7 +6,7 @@ CONFIG="${HOME}/src/dotfiles"
 GIT="/usr/bin/git"
 
 #Exported Variables
-export GNUPGHOME="/root/.local/share/gnupg"
+export GNUPGHOME="${HOME}/.local/share/gnupg"
 
 #Main
 cd "${CONFIG}" || return
