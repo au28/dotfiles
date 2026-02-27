@@ -33,6 +33,7 @@ eval "$(dircolors --sh)"
 
 #Aliases
 alias ls="ls --color=auto"
+alias lh="ls --human-readable -l"
 alias ll="ls --all -l"
 alias la="ls --almost-all"
 alias rm="rm --interactive"
