@@ -7,11 +7,15 @@ then
   return
 fi
 
-#Bash Options
+#Read Only
 if [ "$(id --user)" = "0" ]
 then
   readonly TMOUT="300"
 fi
+readonly LD_PRELOAD
+readonly PATH
+
+#Bash Options
 shopt -s histappend
 shopt -s cmdhist
 INPUTRC="${HOME}/src/dotfiles/shell/inputrc"
